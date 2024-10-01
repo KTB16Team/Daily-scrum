@@ -1,27 +1,23 @@
 name: Daily Scrum Generator
 
-# 매일 오전 9시에 작업 실행 (UTC 기준, 한국 시간은 UTC+9이므로 0시로 설정)
+# 스케줄과 수동 실행 트리거 추가
 on:
   schedule:
     - cron: '15 0 * * *'  # 매일 0시 15분 (한국 시간 기준 9시 15분)
+  workflow_dispatch:     # 수동 실행 트리거 추가
 
 jobs:
   create_daily_scrum:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. 레포지토리 체크아웃
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      # 2. 데일리 스크럼 양식 생성
       - name: Create Daily Scrum Markdown File
         run: |
-          # 현재 날짜를 기반으로 파일 이름 설정
           DATE=$(date +"%Y-%m-%d")
           FILE_NAME="daily-scrum-$DATE.md"
-
-          # 데일리 스크럼 및 Study Log 양식 작성
           echo "## Team Mission" > $FILE_NAME
           echo "" >> $FILE_NAME
           echo "### 당일에 한 작업" >> $FILE_NAME
@@ -51,7 +47,6 @@ jobs:
           echo "### 기타 사항" >> $FILE_NAME
           echo "-" >> $FILE_NAME
 
-      # 3. 생성된 파일을 커밋 및 푸시
       - name: Commit and Push
         run: |
           git config --local user.name "github-actions[bot]"
