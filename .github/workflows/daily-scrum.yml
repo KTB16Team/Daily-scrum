@@ -3,7 +3,7 @@ name: Daily Scrum Generator
 # 매일 오전 9시에 작업 실행 (UTC 기준, 한국 시간은 UTC+9이므로 0시로 설정)
 on:
   schedule:
-    - cron: '0 0 * * *'  # 매일 0시 (한국 시간 기준 9시)
+    - cron: '15 0 * * *'  # 매일 0시 15분 (한국 시간 기준 9시 15분)
 
 jobs:
   create_daily_scrum:
