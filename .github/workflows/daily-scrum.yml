@@ -21,25 +21,10 @@ jobs:
           FILE_NAME="daily-scrum-$DATE.md"
           echo "## Team Mission" > $FILE_NAME
           echo "" >> $FILE_NAME
-          echo "### 당일에 한 작업" >> $FILE_NAME
+          echo "### 어제 한 작업" >> $FILE_NAME
           echo "-" >> $FILE_NAME
           echo "" >> $FILE_NAME
-          echo "### 내일 할 작업" >> $FILE_NAME
-          echo "-" >> $FILE_NAME
-          echo "" >> $FILE_NAME
-          echo "### 미해결 문제" >> $FILE_NAME
-          echo "-" >> $FILE_NAME
-          echo "" >> $FILE_NAME
-          echo "### 기타 사항" >> $FILE_NAME
-          echo "-" >> $FILE_NAME
-          echo "" >> $FILE_NAME
-          echo "--------" >> $FILE_NAME
-          echo "## Study Log" >> $FILE_NAME
-          echo "" >> $FILE_NAME
-          echo "### 당일에 한 작업" >> $FILE_NAME
-          echo "-" >> $FILE_NAME
-          echo "" >> $FILE_NAME
-          echo "### 내일 할 작업" >> $FILE_NAME
+          echo "### 오늘 할 작업" >> $FILE_NAME
           echo "-" >> $FILE_NAME
           echo "" >> $FILE_NAME
           echo "### 미해결 문제" >> $FILE_NAME
@@ -47,6 +32,7 @@ jobs:
           echo "" >> $FILE_NAME
           echo "### 기타 사항" >> $FILE_NAME
           echo "-" >> $FILE_NAME
+          echo "" >> $FILE_NAME
 
           # 파일 이름을 출력하여 다음 단계에서 참조할 수 있도록 설정
           echo "file_name=$FILE_NAME" >> $GITHUB_ENV
