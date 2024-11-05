@@ -1,13 +1,16 @@
 ## Team Mission
 
 ### 어제 한 작업
--
+- 임시 비밀번호 발급 및 이메일 전송 API 구현
 
 ### 오늘 할 작업
 - AI API 에러 처리 논의 및 작성
 - 프론트, 백엔드 인증 오류 해결
 - 백엔드 서버 HTTPS 도메인 연결 설정
 - Prometheus & Grafana 디스코드 알림 오류 해결
+- private-post 발행 로직 수정
+- private-post, post, comment, 리팩토링
+- 대화록 요약 및 판결 (백엔드 <-> AI) API 연결 및 동작 테스트 (postman)
 
 ### 미해결 문제
 -
