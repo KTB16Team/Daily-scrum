@@ -7,10 +7,11 @@
 - BE 오류 수정
 
 ### 오늘 할 작업
-- AI BE 연결 확인
+- AI서버와 BE서버간 API 요청 처리
 - FE 화면 개발
 - BE 오류 수정
 - FE, BE, AI Cloudwatch로 로그 수집
+- S3 CORS 설정
 
 ### 미해결 문제
 -
