@@ -21,16 +21,34 @@ jobs:
           FILE_NAME="daily-scrum-$DATE.md"
           echo "## Team Mission" > $FILE_NAME
           echo "" >> $FILE_NAME
-          echo "### 어제 한 작업" >> $FILE_NAME
+          echo "### 클라우드 파트" >> $FILE_NAME
+          echo "#### 어제 한 작업" >> $FILE_NAME
           echo "-" >> $FILE_NAME
           echo "" >> $FILE_NAME
-          echo "### 오늘 할 작업" >> $FILE_NAME
+          echo "#### 오늘 할 작업" >> $FILE_NAME
           echo "-" >> $FILE_NAME
           echo "" >> $FILE_NAME
-          echo "### 미해결 문제" >> $FILE_NAME
+          echo "#### 미해결 문제" >> $FILE_NAME
           echo "-" >> $FILE_NAME
           echo "" >> $FILE_NAME
-          echo "### 기타 사항" >> $FILE_NAME
+          echo "### 풀스택 파트" >> $FILE_NAME
+          echo "#### 어제 한 작업" >> $FILE_NAME
+          echo "-" >> $FILE_NAME
+          echo "" >> $FILE_NAME
+          echo "#### 오늘 할 작업" >> $FILE_NAME
+          echo "-" >> $FILE_NAME
+          echo "" >> $FILE_NAME
+          echo "#### 미해결 문제" >> $FILE_NAME
+          echo "-" >> $FILE_NAME
+          echo "" >> $FILE_NAME
+          echo "### 인공지능 파트" >> $FILE_NAME
+          echo "#### 어제 한 작업" >> $FILE_NAME
+          echo "-" >> $FILE_NAME
+          echo "" >> $FILE_NAME
+          echo "#### 오늘 할 작업" >> $FILE_NAME
+          echo "-" >> $FILE_NAME
+          echo "" >> $FILE_NAME
+          echo "#### 미해결 문제" >> $FILE_NAME
           echo "-" >> $FILE_NAME
           echo "" >> $FILE_NAME
 
