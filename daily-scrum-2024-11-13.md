@@ -13,6 +13,8 @@
 
 ### 인공지능 파트
 #### 휴가 계획
+- Content A,B형식 말고 전체 상황을 입력 받는 식으로 수정 -alice
+- 다수일 경우 프롬프트 수정 -alice
 - 행동 카테고리 분류 classification -alice
 - 감정 분석 모델 -ryan
 - 요약 부분 -ryan
