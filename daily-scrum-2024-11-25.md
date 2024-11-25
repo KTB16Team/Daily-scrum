@@ -28,8 +28,10 @@
 -
 
 #### 오늘 할 작업
--
+- behavior_classification dataset 구축
+- pretrained BERT 활용한 behavior_classification 학습시키기
+- 성능 개선
 
 #### 미해결 문제
--
+- STT 연결
 
