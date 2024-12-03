@@ -24,11 +24,17 @@
 
 ### 인공지능 파트
 #### 어제 한 작업
--
+- 인공지능 작업 분배 및 인공지능 작업 시작
+- 상황 분류 semantic chunking 및 weight 계산
+- 행동 분류 bert모델 사용
 
 #### 오늘 할 작업
--
-
+- 인공지능 작업 분배 및 인공지능 작업 시작
+- 상황 분류 semantic chunking 및 weight 계산
+- 행동 분류 bert모델 사용
+  
 #### 미해결 문제
--
+- 상황 분류 semantic chunking 및 weight 계산
+- 행동 분류 bert모델 사용
+  
 
