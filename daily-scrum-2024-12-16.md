@@ -5,10 +5,14 @@
 -
 
 #### 오늘 할 작업
--
+- AI GithubAction Seceret key 추가
+- AI 테스트용 Public RabbitMQ 추가
+- requirements.txt Upload시 Dockerfile 멀티 스테이징
+- 람다로 개발외 시간 서버 중단 (비용최적화)
+- Be-AI 워크플로우 처리율, CPU, RAM 사용량 확인
 
 #### 미해결 문제
--
+- 모델이 커졌을 경우 S3 사용 여부 논의
 
 ### 풀스택 파트
 #### 어제 한 작업
