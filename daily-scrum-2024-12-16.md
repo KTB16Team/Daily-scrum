@@ -2,7 +2,8 @@
 
 ### 클라우드 파트
 #### 어제 한 작업
--
+- Docker 멀티 스테이지 빌드 작성
+- RabbitMQ 메시지 큐의 장애 복구 시나리오 테스트 및 대비책 마련
 
 #### 오늘 할 작업
 - AI GithubAction Seceret key 추가
