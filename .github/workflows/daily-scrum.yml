@@ -1,83 +1,83 @@
-name: Daily Scrum Generator
+# name: Daily Scrum Generator
 
 # 스케줄과 수동 실행 트리거 추가
-on:
-  schedule:
-    - cron: '0 4 * * *'  # 매일 04:00 UTC (한국 시간 기준 오후 1시)
-  workflow_dispatch:     # 수동 실행 트리거 추가
+# on:
+#   schedule:
+#     - cron: '0 4 * * *'  # 매일 04:00 UTC (한국 시간 기준 오후 1시)
+#   workflow_dispatch:     # 수동 실행 트리거 추가
 
-jobs:
-  create_daily_scrum:
-    runs-on: ubuntu-latest
+# jobs:
+#   create_daily_scrum:
+#     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
+#     steps:
+#       - name: Checkout Repository
+#         uses: actions/checkout@v2
 
-      - name: Create Daily Scrum Markdown File
-        id: create_file  # ID를 설정하여 이후 단계에서 파일 이름을 참조할 수 있도록 함
-        run: |
-          DATE=$(date +"%Y-%m-%d")
-          FILE_NAME="daily-scrum-$DATE.md"
-          echo "## Team Mission" > $FILE_NAME
-          echo "" >> $FILE_NAME
-          echo "### 클라우드 파트" >> $FILE_NAME
-          echo "#### 어제 한 작업" >> $FILE_NAME
-          echo "-" >> $FILE_NAME
-          echo "" >> $FILE_NAME
-          echo "#### 오늘 할 작업" >> $FILE_NAME
-          echo "-" >> $FILE_NAME
-          echo "" >> $FILE_NAME
-          echo "#### 미해결 문제" >> $FILE_NAME
-          echo "-" >> $FILE_NAME
-          echo "" >> $FILE_NAME
-          echo "### 풀스택 파트" >> $FILE_NAME
-          echo "#### 어제 한 작업" >> $FILE_NAME
-          echo "-" >> $FILE_NAME
-          echo "" >> $FILE_NAME
-          echo "#### 오늘 할 작업" >> $FILE_NAME
-          echo "-" >> $FILE_NAME
-          echo "" >> $FILE_NAME
-          echo "#### 미해결 문제" >> $FILE_NAME
-          echo "-" >> $FILE_NAME
-          echo "" >> $FILE_NAME
-          echo "### 인공지능 파트" >> $FILE_NAME
-          echo "#### 어제 한 작업" >> $FILE_NAME
-          echo "-" >> $FILE_NAME
-          echo "" >> $FILE_NAME
-          echo "#### 오늘 할 작업" >> $FILE_NAME
-          echo "-" >> $FILE_NAME
-          echo "" >> $FILE_NAME
-          echo "#### 미해결 문제" >> $FILE_NAME
-          echo "-" >> $FILE_NAME
-          echo "" >> $FILE_NAME
+#       - name: Create Daily Scrum Markdown File
+#         id: create_file  # ID를 설정하여 이후 단계에서 파일 이름을 참조할 수 있도록 함
+#         run: |
+#           DATE=$(date +"%Y-%m-%d")
+#           FILE_NAME="daily-scrum-$DATE.md"
+#           echo "## Team Mission" > $FILE_NAME
+#           echo "" >> $FILE_NAME
+#           echo "### 클라우드 파트" >> $FILE_NAME
+#           echo "#### 어제 한 작업" >> $FILE_NAME
+#           echo "-" >> $FILE_NAME
+#           echo "" >> $FILE_NAME
+#           echo "#### 오늘 할 작업" >> $FILE_NAME
+#           echo "-" >> $FILE_NAME
+#           echo "" >> $FILE_NAME
+#           echo "#### 미해결 문제" >> $FILE_NAME
+#           echo "-" >> $FILE_NAME
+#           echo "" >> $FILE_NAME
+#           echo "### 풀스택 파트" >> $FILE_NAME
+#           echo "#### 어제 한 작업" >> $FILE_NAME
+#           echo "-" >> $FILE_NAME
+#           echo "" >> $FILE_NAME
+#           echo "#### 오늘 할 작업" >> $FILE_NAME
+#           echo "-" >> $FILE_NAME
+#           echo "" >> $FILE_NAME
+#           echo "#### 미해결 문제" >> $FILE_NAME
+#           echo "-" >> $FILE_NAME
+#           echo "" >> $FILE_NAME
+#           echo "### 인공지능 파트" >> $FILE_NAME
+#           echo "#### 어제 한 작업" >> $FILE_NAME
+#           echo "-" >> $FILE_NAME
+#           echo "" >> $FILE_NAME
+#           echo "#### 오늘 할 작업" >> $FILE_NAME
+#           echo "-" >> $FILE_NAME
+#           echo "" >> $FILE_NAME
+#           echo "#### 미해결 문제" >> $FILE_NAME
+#           echo "-" >> $FILE_NAME
+#           echo "" >> $FILE_NAME
 
-          # 파일 이름을 출력하여 다음 단계에서 참조할 수 있도록 설정
-          echo "file_name=$FILE_NAME" >> $GITHUB_ENV
+#           # 파일 이름을 출력하여 다음 단계에서 참조할 수 있도록 설정
+#           echo "file_name=$FILE_NAME" >> $GITHUB_ENV
 
-      - name: Commit and Push
-        run: |
-          git config --local user.name "github-actions[bot]"
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git add .
-          git commit -m "Add daily scrum file for $DATE"
-          git push
+#       - name: Commit and Push
+#         run: |
+#           git config --local user.name "github-actions[bot]"
+#           git config --local user.email "github-actions[bot]@users.noreply.github.com"
+#           git add .
+#           git commit -m "Add daily scrum file for $DATE"
+#           git push
 
-      - name: Send Discord Notification
-        run: |
-          # 현재 레포지토리 URL 및 생성된 파일 링크 설정
-          REPO_URL="https://github.com/${{ github.repository }}"
-          FILE_URL="$REPO_URL/blob/main/${{ env.file_name }}"
-          # Discord Webhook 메시지 전송
-          curl -H "Content-Type: application/json" \
-            -d '{
-              "content": "'"${{ github.event.repository.name }}"' 레포지토리에 '"${{ env.file_name }}"' 파일이 생성되었습니다.",
-              "embeds": [
-                {
-                  "title": "'"${{ env.file_name }}"'",
-                  "description": "일일 보고 양식이 생성되었습니다. [여기]('"$FILE_URL"')에서 바로 확인 가능합니다.",
-                  "color": 3066993
-                }
-              ]
-            }' \
-            ${{ secrets.DISCORD_WEBHOOK_URL }}
+#       - name: Send Discord Notification
+#         run: |
+#           # 현재 레포지토리 URL 및 생성된 파일 링크 설정
+#           REPO_URL="https://github.com/${{ github.repository }}"
+#           FILE_URL="$REPO_URL/blob/main/${{ env.file_name }}"
+#           # Discord Webhook 메시지 전송
+#           curl -H "Content-Type: application/json" \
+#             -d '{
+#               "content": "'"${{ github.event.repository.name }}"' 레포지토리에 '"${{ env.file_name }}"' 파일이 생성되었습니다.",
+#               "embeds": [
+#                 {
+#                   "title": "'"${{ env.file_name }}"'",
+#                   "description": "일일 보고 양식이 생성되었습니다. [여기]('"$FILE_URL"')에서 바로 확인 가능합니다.",
+#                   "color": 3066993
+#                 }
+#               ]
+#             }' \
+#             ${{ secrets.DISCORD_WEBHOOK_URL }}
